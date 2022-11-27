@@ -27,22 +27,25 @@ O frontend está hospedado na vercel no seguine endereço [Link da aplicação](
 
 ### Backend
 
-- [x] Endpoint de criação de recibo
-- [x] Endpoint de validação de recibos
-- [ ] Tratamento de erros com requisições
-- [ ] Criação de Usuário para salvar dados de preenchimento de recibos
-- [ ] Salvar recibos gerados
+- [x] Endpoint de criação de recibo.
+- [x] Endpoint de validação de recibos.
+- [x] Testes unitários.
+- [x] Testes de integração.
+- [x] Tratamento de erros com requisições.
+- [ ] Geração de PDF do recibo.
+- [ ] Criação de Usuário para salvar dados de preenchimento de recibos.
+- [ ] Salvar recibos gerados.
 
 ### Frontend
 
-- [ ] Criar usuário
-- [ ] Login de usuário
+- [ ] Criar usuário.
+- [ ] Login de usuário.
 - [ ] Gerar recibos.
 - [ ] Tabela de boletos com histórico de recibos.
 
 ### Infra Estrutura
 
-- [ ] Dockerfile
-- [ ] Docker-compose
-- [ ] Hospedar imagem ECR
-- [ ] Subir imagem em container EC2
+- [ ] Dockerfile.
+- [ ] Docker-compose.
+- [ ] Hospedar imagem ECR.
+- [ ] Subir imagem em container EC2.

@@ -1,20 +1,49 @@
 package io.github.emanueldsc.geradorderecibo.models;
 
+import org.springframework.format.annotation.NumberFormat;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Null;
+
 public class Recipet {
 
+    @NumberFormat
+    @NotNull(message = "Número do Documento inválido")
     private Integer number; // numero
+    
+    @NumberFormat
+    @NotNull(message = "Valor do Documento inválido")
     private Double value; // valor
+
+    @NotBlank(message = "Credor do Documento inválido")
     private String creditor; // credor
+    
+    @NotBlank(message = "Devedor do Documento inválido")
     private String debtor; // devedor
+    
+    @NotBlank(message = "Local do Documento inválido")
     private String referent; // referente
+    
+    @NotBlank(message = "Local do Documento inválido")
     private String place; // local
+    
+    @NotBlank(message = "RG/CPF do Documento inválido")
     private String rgCpf;
+    
+    @Null
     private String key; // chave
 
     public Recipet() {
     }
 
-    public Recipet(Integer number, Double value, String creditor, String debtor, String referent, String place,
+    public Recipet(
+            Integer number,
+            Double value,
+            String creditor,
+            String debtor,
+            String referent,
+            String place,
             String rgCpf) {
         this.number = number;
         this.value = value;

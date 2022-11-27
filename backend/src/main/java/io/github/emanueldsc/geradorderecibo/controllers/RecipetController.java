@@ -1,6 +1,7 @@
 package io.github.emanueldsc.geradorderecibo.controllers;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.github.emanueldsc.geradorderecibo.models.Recipet;
 import io.github.emanueldsc.geradorderecibo.services.RecipetService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/recipet")
@@ -22,16 +24,19 @@ public class RecipetController {
 
     @PostMapping()
     public ResponseEntity<Recipet> generateRecipet(
-            @RequestBody Recipet reciped) throws NoSuchAlgorithmException {
+            @Valid @RequestBody Recipet reciped) throws NoSuchAlgorithmException {
         Recipet recipetValid = recipetService.generateValidateRecipet(reciped);
         return ResponseEntity.ok().body(recipetValid);
     }
 
-    @PostMapping(value = "/test/{cifer}")
+    @PostMapping(value = { "/test", "/test/{cifer}" })
     public ResponseEntity<Boolean> testRecipet(
-            @PathVariable(value = "cifer") String cifer) throws NoSuchAlgorithmException {
-        Boolean isValid = this.recipetService.validateRecipet(cifer);
-        return ResponseEntity.ok(isValid);
+            @PathVariable(value = "cifer") Optional<String> cipher) throws NoSuchAlgorithmException {
+        if (cipher.isPresent()) {
+            Boolean isValid = this.recipetService.validateRecipet(cipher.get());
+            return ResponseEntity.ok(isValid);
+        }
+        return ResponseEntity.ok(false);
     }
 
 }

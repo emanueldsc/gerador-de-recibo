@@ -19,20 +19,23 @@ public class RecipetService {
 
         String key = this.generateKey(recipet);
         recipet.setKey(key);
+        String dataQrCode = this.generateQrCodeData(recipet);
 
-        this.generateQrCodeData(recipet);
+        System.out.println(dataQrCode);
+
+        // TODO generate Jasper;
 
         return recipet;
     }
 
-    public Boolean validateRecipet(String cifer) throws NoSuchAlgorithmException {
-
-        var listCifer = cifer.split("\\.");
-        String[] listDataDecode = new String[listCifer.length];
+    public Boolean validateRecipet(String cipher) throws NoSuchAlgorithmException {
+        var listCipher = cipher.split("\\.");
+        String[] listDataDecode = new String[listCipher.length];
+        if (listDataDecode.length != 7)
+            return false;
         for (var i = 0; i < listDataDecode.length; i++) {
-            var decodeCifer = Base64.getMimeDecoder().decode(listCifer[i]);
-            listDataDecode[i] = new String(decodeCifer);
-            System.out.println(listDataDecode[i]);
+            var decodeCipher = Base64.getMimeDecoder().decode(listCipher[i]);
+            listDataDecode[i] = new String(decodeCipher);
         }
         Recipet recipet = new Recipet();
         recipet.setNumber(Integer.parseInt(listDataDecode[0]));
@@ -42,39 +45,25 @@ public class RecipetService {
         recipet.setReferent(listDataDecode[4]);
         recipet.setRgCpf(listDataDecode[5]);
         String keyToTest = this.generateKey(recipet);
-        Boolean isKeyValid = keyToTest.equals(listDataDecode[listDataDecode.length -1]);
+        Boolean isKeyValid = keyToTest.equals(listDataDecode[listDataDecode.length - 1]);
         return isKeyValid;
     }
 
-    private String generateQrCodeData(Recipet recipet) {
-        Map<String, String> map = new HashMap<>();
-
-        String number = Base64.getEncoder().encodeToString(recipet.getNumber().toString().getBytes());
-        String value = Base64.getEncoder().encodeToString(recipet.getValue().toString().getBytes());
-        String creditor = Base64.getEncoder().encodeToString(recipet.getCreditor().getBytes());
-        String debtor = Base64.getEncoder().encodeToString(recipet.getDebtor().getBytes());
-        String referent = Base64.getEncoder().encodeToString(recipet.getReferent().getBytes());
-        String rgCpf = Base64.getEncoder().encodeToString(recipet.getRgCpf().getBytes());
+    private String generateQrCodeData(Recipet recipet) throws NoSuchAlgorithmException {
+        String qrData = this.getTemplateWithCipherValues(recipet);
         String key = Base64.getEncoder().encodeToString(recipet.getKey().getBytes());
-
-        map.put("number", number);
-        map.put("value", value);
-        map.put("creditor", creditor);
-        map.put("debtor", debtor);
-        map.put("referent", referent);
-        map.put("rgCpf", rgCpf);
-        map.put("key", key);
-
-        String template = "${number}.${value}.${creditor}.${debtor}.${referent}.${rgCpf}.${key}";
-        StringSubstitutor sub = new StringSubstitutor(map);
-        String qrData = sub.replace(template);
-        System.out.println("======================================================");
-        System.out.println(qrData);
-
-        return "";
+        qrData = qrData.concat("." + key);
+        return qrData;
     }
 
     private String generateKey(Recipet recipet) throws NoSuchAlgorithmException {
+        String raw = this.getTemplateWithCipherValues(recipet);
+        if (raw.isEmpty())
+            return null;
+        return this.getMD5Hash(raw, "sha256");
+    }
+
+    private String getTemplateWithCipherValues(Recipet recipet) throws NoSuchAlgorithmException {
         Map<String, String> mapValues = new HashMap<>();
         mapValues.put("number", getMD5Hash(recipet.getNumber().toString()));
         mapValues.put("value", getMD5Hash(recipet.getValue().toString()));
@@ -85,7 +74,7 @@ public class RecipetService {
         String template = "${number}.${value}.${creditor}.${debtor}.${referent}.${rgCpf}";
         StringSubstitutor sub = new StringSubstitutor(mapValues);
         String resolvedTemplateKey = sub.replace(template);
-        return this.getMD5Hash(resolvedTemplateKey, "sha256");
+        return resolvedTemplateKey;
     }
 
     private String getMD5Hash(String data) throws NoSuchAlgorithmException {
