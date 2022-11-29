@@ -16,15 +16,11 @@ import io.github.emanueldsc.geradorderecibo.models.Recipet;
 public class RecipetService {
 
     public Recipet generateValidateRecipet(Recipet recipet) throws NoSuchAlgorithmException {
-
         String key = this.generateKey(recipet);
         recipet.setKey(key);
         String dataQrCode = this.generateQrCodeData(recipet);
-
-        System.out.println(dataQrCode);
-
-        // TODO generate Jasper;
-
+        recipet.setKey("http://localhost:8080/test/"+dataQrCode);
+        System.out.println(recipet.getKey());
         return recipet;
     }
 

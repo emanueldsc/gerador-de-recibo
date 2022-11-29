@@ -32,7 +32,9 @@ O frontend está hospedado na vercel no seguine endereço [Link da aplicação](
 - [x] Testes unitários.
 - [x] Testes de integração.
 - [x] Tratamento de erros com requisições.
-- [ ] Geração de PDF do recibo.
+- [x] Geração de PDF do recibo.
+- [ ] Ajustar designer do recibo.
+- [ ] Abrir url no celualr assim que for lido o QRCode.
 - [ ] Criação de Usuário para salvar dados de preenchimento de recibos.
 - [ ] Salvar recibos gerados.
 
