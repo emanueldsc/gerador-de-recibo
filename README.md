@@ -42,7 +42,7 @@ O frontend está hospedado na vercel no seguine endereço [Link da aplicação](
 
 - [ ] Criar usuário.
 - [ ] Login de usuário.
-- [ ] Gerar recibos.
+- [x] Gerar recibos.
 - [ ] Tabela de boletos com histórico de recibos.
 
 ### Infra Estrutura

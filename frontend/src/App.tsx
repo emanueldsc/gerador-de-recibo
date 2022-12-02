@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { Container } from './components/Container';
+import { FormRecipet } from './components/FormRecipet';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -26,9 +28,9 @@ function App() {
   }
 
   return (
-    <>
-      <button onClick={getReport}> get Report </button>
-    </>
+    <Container>
+      <FormRecipet />
+    </Container>
   )
 }
 

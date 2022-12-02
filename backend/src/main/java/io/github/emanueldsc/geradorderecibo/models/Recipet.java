@@ -11,26 +11,32 @@ public class Recipet {
     @NumberFormat
     @NotNull(message = "Número do Documento inválido")
     private Integer number; // numero
-    
+
     @NumberFormat
     @NotNull(message = "Valor do Documento inválido")
     private Double value; // valor
 
     @NotBlank(message = "Credor do Documento inválido")
     private String creditor; // credor
-    
+
     @NotBlank(message = "Devedor do Documento inválido")
     private String debtor; // devedor
-    
+
     @NotBlank(message = "Local do Documento inválido")
     private String referent; // referente
-    
+
     @NotBlank(message = "Local do Documento inválido")
     private String place; // local
-    
+
     @NotBlank(message = "RG/CPF do Documento inválido")
     private String rgCpf;
+
+    @NotBlank(message = "Data do Documento inválida")
+    private String date;
     
+    @NotBlank(message = "Cidade-UF do Documento inválida")
+    private String cityUf;
+
     @Null
     private String key; // chave
 
@@ -44,7 +50,9 @@ public class Recipet {
             String debtor,
             String referent,
             String place,
-            String rgCpf) {
+            String cityUf,
+            String rgCpf,
+            String date) {
         this.number = number;
         this.value = value;
         this.creditor = creditor;
@@ -52,6 +60,7 @@ public class Recipet {
         this.referent = referent;
         this.place = place;
         this.rgCpf = rgCpf;
+        this.date = date;
     }
 
     public Integer getNumber() {
@@ -116,6 +125,22 @@ public class Recipet {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public String getDate() {
+        return this.date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getCityUf() {
+        return this.cityUf;
+    }
+
+    public void setCityUf(String cityUf) {
+        this.cityUf = cityUf;
     }
 
 }
