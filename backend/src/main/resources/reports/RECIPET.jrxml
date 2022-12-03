@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Recipet" pageWidth="595" pageHeight="420" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c6284606-bdbf-4991-a6ac-228dd3d605b1">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Recipet" pageWidth="595" pageHeight="842" columnWidth="585" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" uuid="c6284606-bdbf-4991-a6ac-228dd3d605b1">
 	<parameter name="NUMBER" class="java.lang.String"/>
 	<parameter name="VALUE" class="java.lang.String"/>
 	<parameter name="CREDITOR" class="java.lang.String"/>
@@ -9,118 +9,110 @@
 	<parameter name="PLACE" class="java.lang.String"/>
 	<parameter name="RGCPF" class="java.lang.String"/>
 	<parameter name="KEY" class="java.lang.String"/>
+	<parameter name="VALUE_TO_WORD" class="java.lang.String"/>
+	<parameter name="CITYUF" class="java.lang.String"/>
+	<parameter name="YEAR" class="java.lang.String"/>
+	<parameter name="MONTH" class="java.lang.String"/>
+	<parameter name="DAY" class="java.lang.String"/>
+	<parameter name="QRCODE" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
 	<detail>
-		<band height="214" splitType="Stretch">
+		<band height="213" splitType="Stretch">
+			<rectangle radius="4">
+				<reportElement stretchType="ElementGroupHeight" x="170" y="0" width="415" height="213" uuid="256b74ff-7a9c-40e3-b23e-eb0045bc9c76"/>
+			</rectangle>
+			<rectangle radius="4">
+				<reportElement x="270" y="5" width="110" height="30" uuid="bce4cc4a-1cd5-4907-893b-f6cb9510e46f"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle radius="4">
+				<reportElement x="391" y="5" width="190" height="30" uuid="0ef59b08-9459-4d7e-a3e7-61522c7fd656"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
 			<textField>
-				<reportElement x="270" y="0" width="280" height="30" uuid="dff33c30-d47f-4a51-bbf4-824690d7fbb9"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
+				<reportElement x="270" y="5" width="110" height="30" uuid="dff33c30-d47f-4a51-bbf4-824690d7fbb9"/>
+				<box padding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="270" y="30" width="280" height="30" uuid="bd474d7a-44a6-4c79-9544-cfc21c001c6c"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
+				<reportElement x="391" y="5" width="190" height="30" uuid="bd474d7a-44a6-4c79-9544-cfc21c001c6c"/>
+				<box padding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{VALUE}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="270" y="60" width="280" height="30" uuid="7a8fd7b1-4a75-4510-8ccb-c6991c7d20c4">
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="ElementGroupHeight" x="175" y="41" width="406" height="161" uuid="7a8fd7b1-4a75-4510-8ccb-c6991c7d20c4">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
+				<box padding="4"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="html">
 					<font size="12"/>
+					<paragraph lineSpacing="1_1_2" lineSpacingSize="1.0"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{CREDITOR}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="270" y="90" width="280" height="30" uuid="a7faaaa9-7cc3-49c4-a9d6-12c85513d5fa">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{DEBTOR}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="270" y="120" width="280" height="30" uuid="cb2c68dd-ce42-4650-a426-de93b482832a">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{REFERENT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="270" y="150" width="280" height="29" uuid="a084a5b9-21e9-462d-958c-3fb4d24bb6ba">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{PLACE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="270" y="179" width="280" height="30" uuid="da7c6ecc-8bc1-4038-bbdb-289c65bb1ada">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{RGCPF}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Recebi(emos) de <i><b>" + $P{DEBTOR} + "</b></i> <br>" +
+"A importância de <i><b>" +  $P{VALUE_TO_WORD} + ".</b></i><br>" +
+"Referente:  <i><b>" +  $P{REFERENT} + ".</b></i> <br>" +
+"Endereço  <i><b>" +  $P{PLACE} + ".</b><br> " +
+"E para maior clareza fimo(amos) o presente. <br>" +
+"<b><u>" + $P{CITYUF} + "</u>, <u>" + $P{DAY} + "</u> de <u>" + $P{MONTH} + "</u> de <u>" + $P{YEAR} + "</u>.</b><br>" +
+"Emitente <i><b>" + $P{CREDITOR} + "</b></i><br>RG/CPF " + $P{RGCPF}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="170" y="0" width="100" height="30" uuid="328eb1c9-3938-4dc2-96ff-df75ce58d256"/>
+				<reportElement x="175" y="5" width="80" height="30" uuid="328eb1c9-3938-4dc2-96ff-df75ce58d256"/>
 				<box padding="5"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<text><![CDATA[NUMERO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="170" y="30" width="100" height="30" uuid="d1666cb4-0f38-4e15-b0d9-dd910261190f"/>
-				<box padding="5"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<text><![CDATA[VALOR]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="170" y="60" width="100" height="30" uuid="71feda64-a172-4a78-b24c-0ff96ec43f80"/>
-				<box padding="5"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<text><![CDATA[CREDITOR]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="170" y="90" width="100" height="30" uuid="2159d0f6-b849-47cc-900b-2534093dcb2a"/>
-				<box padding="5"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<text><![CDATA[DEBITOR]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="170" y="120" width="100" height="30" uuid="7ec104c8-8033-498e-a063-34d6f0328f71"/>
-				<box padding="5"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<text><![CDATA[REFERENT]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="170" y="149" width="100" height="30" uuid="c05a3903-fda8-4883-9761-d77a374107eb"/>
-				<box padding="5"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<text><![CDATA[PLACE]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="170" y="179" width="100" height="30" uuid="ad6bf2d2-c89d-4c58-b018-78bdf1cdc32c"/>
-				<box padding="5"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<text><![CDATA[RGCPF]]></text>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Recibo]]></text>
 			</staticText>
 			<image>
 				<reportElement x="0" y="0" width="160" height="160" uuid="09910b43-1ada-4f5d-b2e2-12f6d79fc7d9"/>
-				<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
-new com.google.zxing.qrcode.QRCodeWriter().encode($P{KEY},com.google.zxing.BarcodeFormat.QR_CODE, 300,  300))]]></imageExpression>
+				<box padding="0"/>
+				<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(new com.google.zxing.qrcode.QRCodeWriter().encode($P{QRCODE},com.google.zxing.BarcodeFormat.QR_CODE, 300,  300))]]></imageExpression>
 			</image>
+			<staticText>
+				<reportElement x="391" y="5" width="100" height="30" uuid="0ffe9f33-a13b-4ba2-a817-78994cfb4783"/>
+				<box padding="4"/>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="5" width="110" height="30" uuid="92312016-6dc2-45ac-9aad-c60abdd1eadd"/>
+				<box padding="4"/>
+				<text><![CDATA[Nº]]></text>
+			</staticText>
+		</band>
+		<band height="47">
+			<rectangle radius="4">
+				<reportElement x="0" y="6" width="585" height="30" uuid="00070254-9186-4f2b-ad19-c02cf3b6f2d8"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="6" width="585" height="30" uuid="fa6414bc-0237-4279-a4f4-f5ae7801fb90"/>
+				<box padding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Chave: " + $P{KEY}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="46" width="585" height="1" uuid="4b0853e3-6ff1-4f66-ab5a-2c89512e59a8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
 		</band>
 	</detail>
 </jasperReport>

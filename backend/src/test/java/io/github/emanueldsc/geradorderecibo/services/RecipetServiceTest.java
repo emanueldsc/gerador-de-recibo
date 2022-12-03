@@ -11,6 +11,7 @@ import static io.github.emanueldsc.geradorderecibo.common.RecipetConstants.RECIP
 import static io.github.emanueldsc.geradorderecibo.common.RecipetConstants.RECIPET_INVALID;
 import static io.github.emanueldsc.geradorderecibo.common.RecipetConstants.KEY_RECIPET_VALID;
 import static io.github.emanueldsc.geradorderecibo.common.RecipetConstants.CIPHER_RECIPET_VALID;
+import static io.github.emanueldsc.geradorderecibo.common.RecipetConstants.QRDATA;
 
 import java.security.NoSuchAlgorithmException;
 
@@ -36,6 +37,12 @@ public class RecipetServiceTest {
         Assertions
                 .assertThatThrownBy(() -> recipetService.generateValidateRecipet(RECIPET_INVALID))
                 .isInstanceOf(RuntimeException.class);
+    }
+
+    @Test
+    public void createQrData_validRecipet_stringQrData() throws NoSuchAlgorithmException {
+        String sut = recipetService.generateValidateQRData(RECIPET_VALID);
+        Assertions.assertThat(sut).isEqualTo(QRDATA);
     }
 
     @Test

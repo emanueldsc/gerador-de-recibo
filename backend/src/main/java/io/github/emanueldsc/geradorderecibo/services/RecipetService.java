@@ -18,10 +18,13 @@ public class RecipetService {
     public Recipet generateValidateRecipet(Recipet recipet) throws NoSuchAlgorithmException {
         String key = this.generateKey(recipet);
         recipet.setKey(key);
-        String dataQrCode = this.generateQrCodeData(recipet);
-        recipet.setKey("http://localhost:8080/test/"+dataQrCode);
         System.out.println(recipet.getKey());
         return recipet;
+    }
+
+    public String generateValidateQRData(Recipet recipet) throws NoSuchAlgorithmException {
+        String qrData = this.generateQrCodeData(recipet);
+        return qrData;
     }
 
     public Boolean validateRecipet(String cipher) throws NoSuchAlgorithmException {
@@ -47,7 +50,8 @@ public class RecipetService {
 
     private String generateQrCodeData(Recipet recipet) throws NoSuchAlgorithmException {
         String qrData = this.getTemplateWithCipherValues(recipet);
-        String key = Base64.getEncoder().encodeToString(recipet.getKey().getBytes());
+        String newKay = this.generateKey(recipet);
+        String key = Base64.getEncoder().encodeToString(newKay.getBytes());
         qrData = qrData.concat("." + key);
         return qrData;
     }

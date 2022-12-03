@@ -9,6 +9,7 @@ function FormRecipet() {
 
     function gerarRecibo(e: FormEvent<HTMLFormElement>): void {
         e.preventDefault()
+        debugger
         RecipetService.generatePDFRecipet(recipet)
     }
 
@@ -62,7 +63,7 @@ function FormRecipet() {
                     </div>
                     <div className="w3-half">
                         <label className="w3-text-blue"><b>Data</b></label>
-                        <input className="w3-input w3-border" onChange={handleInput} name="data" type="date" />
+                        <input className="w3-input w3-border" onChange={handleInput} name="date" type="date" />
                     </div>
                 </div>
                 <div className={styles.rowFlex}>

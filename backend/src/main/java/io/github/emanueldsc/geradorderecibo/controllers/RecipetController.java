@@ -43,7 +43,8 @@ public class RecipetController {
     public void showReport(@Valid @RequestBody Recipet recipet, HttpServletResponse response)
             throws NoSuchAlgorithmException, IOException {
         Recipet recipetValid = recipetService.generateValidateRecipet(recipet);
-        byte[] bytes = jasperService.exportPdf(recipetValid);
+        String qrData = recipetService.generateValidateQRData(recipetValid);
+        byte[] bytes = jasperService.exportPdf(recipetValid, qrData);
         response.setContentType(MediaType.APPLICATION_PDF_VALUE);
         response.setHeader("Content-disposition", "inline; filename=RECIPET.pdf");
         response.getOutputStream().write(bytes);

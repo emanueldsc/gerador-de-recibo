@@ -1,14 +1,14 @@
 class Recipet {
     constructor(
-        public number: number = 1,
-        public value: number = 1500.90,
-        public creditor: string = "Emanuel Douglas",
-        public debtor: string = "Outra Pessoa",
-        public referent: string = "Um celular",
-        public place: string = "Rua Olimio De Noronha, 490",
-        public cityUF: string = "Fortaleza-CE ",
-        public rgCpf: string = "12989067809",
-        public date: string = "06/12/1990"
+        public number: number = 0,
+        public value: number = 0,
+        public creditor: string = "★★★★★★★★",
+        public debtor: string = "★★★★★★★★",
+        public referent: string = "★★★★★★★★",
+        public place: string = "★★★★★★★★",
+        public cityUf: string = "★★★★★★★★-★★ ",
+        public rgCpf: string = "★★★.★★★.★★★-★★",
+        public date: string = "0001-01-01"
     ) { }
 }
 
